@@ -8,6 +8,7 @@ import { eventSimple } from './eventSimple'
 import { eventDetailed } from './eventDetailed'
 import { upcomingEvent } from './upcomingEvent'
 import { hotTopics } from './hotTopics'
+import { article } from './article'
 
 export const schemaTypes: SchemaTypeDefinition[] = [
   {
@@ -27,4 +28,5 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   eventDetailed,
   upcomingEvent,
   hotTopics,
+  article,
 ]

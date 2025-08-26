@@ -1,5 +1,4 @@
-// ./schemas/hotTopics.ts
-import {defineType} from 'sanity'
+import { defineType } from 'sanity'
 
 const topics = ["VLSI", "Chip Design", "Semiconductors", "AI in Hardware", "Industry News", "Embedded Systems", "FPGA", "ASIC", "Low Power Design", "Verification", "Testing", "EDA Tools"]
 
@@ -38,10 +37,33 @@ export const hotTopics = defineType({
       of: [{ type: 'url' }],
     },
     {
-      name: 'image',
-      title: 'Featured Image',
+      name: 'imagery',
+      title: 'Imagery (Screenshots, Diagrams)',
       type: 'array',
-      of: [{ type: 'image', options: { hotspot: true } }],
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              options: { hotspot: true }
+            },
+            {
+              name: 'description',
+              title: 'Description',
+              type: 'string'
+            }
+          ],
+          preview: {
+            select: {
+              media: 'image',
+              title: 'description'
+            }
+          }
+        }
+      ]
     },
     {
       name: 'publishDate',
@@ -53,6 +75,18 @@ export const hotTopics = defineType({
       title: 'Human-Verified (for moderation)',
       type: 'boolean',
       initialValue: false,
+    },
+    {
+      name: 'views',
+      title: 'View Count',
+      type: 'number',
+      initialValue: 0,
+    },
+    {
+      name: 'upvotes',
+      title: 'Upvote Count',
+      type: 'number',
+      initialValue: 0,
     },
   ],
 })
