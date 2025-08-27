@@ -18,6 +18,11 @@ export const hotTopics = defineType({
       type: 'string',
     },
     {
+      name: 'thumbnail',
+      title: 'Thumbnail Image',
+      type: 'image',
+    },
+    {
       name: 'summary',
       title: 'AI-Summarized Content',
       type: 'text',
